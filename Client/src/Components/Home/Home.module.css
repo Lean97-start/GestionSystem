@@ -1,0 +1,23 @@
+
+.HomeGral{
+    display: grid;
+    grid-template-rows: 2;
+}
+
+
+.Navbar{
+    grid-row: 1;
+}
+
+#bodyGrid2{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    border: 1px solid #f7b553;
+}
+
+.TabFilter{
+    grid-column: 1
+} 
+.Documents{
+    grid-column: 2;
+}
