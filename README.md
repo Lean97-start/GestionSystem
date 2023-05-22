@@ -44,6 +44,7 @@ Presentamos de lo que sería la primera iteración.
 - Individualizar el nombre del archivo.
 - Aplicar mejoras de seguridad.
 
+
 # Tecnologías implementadas
 - **Back-End** Link al repo: <a href:"https://github.com/Lean97-start/GestionSystem/tree/main/Server"></a> 
     - Node.js
