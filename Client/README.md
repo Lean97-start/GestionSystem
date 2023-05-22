@@ -33,7 +33,7 @@ Presentamos de lo que sería la primera iteración.
 
 ## Diagrama de clases
 
-<a href="./Diagrama/CU_Crowdar.png"><img src="./Diagrama/CU_Crowdar.png" alt="Diagrama de clases" /></a>
+<a href="Server/Diagrama/CU_Crowdar.png"><img src="Server/Diagrama/CU_Crowdar.png" alt="Diagrama de clases" /></a>
 
 # Mejoras a implementar para la segunda iteración
 - Solamente el usuario que creo el grupo puede eliminarlo.
