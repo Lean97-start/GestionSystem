@@ -3,7 +3,6 @@ import {
     assignUserToGroupUserController,
     createGroupUsersController,
     deleteGroupUsersController,
-    deleteUserFromGroupUserController,
     getAllGroupUsersController,
     getGroupUsersController,
     updateGroupUsersController 
@@ -18,6 +17,5 @@ groupUsersRouter.get("/V1/group/getGroupUsers/:id", validateToken, getGroupUsers
 groupUsersRouter.post("/V1/group/getAllGroupUsers", validateToken, getAllGroupUsersController);
 groupUsersRouter.delete("/V1/group/deleteGroupUsers", validateToken, deleteGroupUsersController);
 groupUsersRouter.post("/V1/group/assignUserToGroupUser", validateToken, assignUserToGroupUserController);
-groupUsersRouter.post("/V1/group/deleteUserToGroupUser", validateToken, deleteUserFromGroupUserController);
 
 export default groupUsersRouter;

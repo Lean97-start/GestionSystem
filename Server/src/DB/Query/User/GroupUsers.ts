@@ -49,19 +49,16 @@ export async function validateGroupUsersExistCreateDB(nameGroupUsers: string): P
     }
 }
 
-export const getAllGroupDB = async (filterName?: string | undefined) => {
+export const getAllGroupDB = async (filterName?: string) => {
     try {   
-        let filters = {}
-        console.log(filterName)
-        if(filterName?.length !== 0 || filterName !== undefined){ 
+        let filters = {};
+        if(filterName?.length){
             filters = {nameGroupUsers: filterName}
         }
-        console.log(filters)
         const groupFound = await groupUsersInstanceDB.find(filters);
         if(groupFound.length === 0) throw errorGroupUsersClient.ERROR_GROUP_USERS
         return groupFound;
     } catch (error: any) {
-        
         if(error.statusCode.toString().startsWith('4')) throw error;
         return errorGroupUsersDB.ERROR_GET_GROUP;
     }

@@ -14,7 +14,7 @@ export const createDocumentDB = async (documentPayload: IDocument): Promise<any>
     }
 }
 
-export const updateDocumentDB = async (_id_doc:string, updatedDocument: IDocument): Promise<IDocument | IError> => {
+export const updateDocumentDB = async (_id_doc:string, updatedDocument: Object): Promise<IDocument | IError> => {
     try {
         const documentUpdated: IDocument | null = await documentInstanceDB.findOneAndUpdate(
             {

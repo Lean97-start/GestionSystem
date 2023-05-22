@@ -44,15 +44,18 @@ export async function validateUserExistCreateDB(usernameExist: string): Promise<
 export async function validateUsersExistCreateDB(usuarios: Array<string>): Promise<Array<IGroupUsers>> {
     try {
         let userPromise: any = []
+        
         usuarios.forEach(userID => {        
             let userPromesa = userInstanceDB.findOne({ _id:  userID })
                 .then((user: any) => {return {user: user.fullNameUser, _id: user._id}})
                 .catch(() => errorClient.ERROR_USER_REGISTED)
             userPromise.push(userPromesa) 
         });
+
         const userFound: any = await Promise.all(userPromise)
             .then((resolve) => resolve)
             .catch((rej) => rej)
+        console.log(userFound)
         if(userFound.length === 0) throw errorClient.ERROR_USER_REGISTED
         return userFound;
     } catch (error: any) {

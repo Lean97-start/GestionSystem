@@ -1,8 +1,8 @@
 export interface IDocument{
     nameDocument: string,
     typeDocument: 'publico'| "privado" | "borrador",
-    documentOwner: string
-    dataDocument: Buffer
+    documentOwner: string,
+    dataDocument: Buffer,
 }
 
 export interface ISuccess{

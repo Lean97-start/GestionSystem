@@ -22,7 +22,7 @@ const documentSchema = new Schema(
         },
         usersGroup:{
             type: Array,
-            of: String,
+            of: Object,
             required:true,
             default: []
         },

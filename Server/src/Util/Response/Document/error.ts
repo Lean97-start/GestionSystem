@@ -6,3 +6,8 @@ export const errorDB = {
     ERROR_UPDATE_DOCUMENT: {statusCode: 500 ,error_message:"Hubo un error en actualizar el documento."},
     ERROR_DELETE_DOCUMENT: {statusCode: 500 ,error_message:"Hubo un error en eliminar el documento."},
 }
+
+export const errorClient = {
+    ERROR_USER_NOT_FOUND: {statusCode: 400 ,error_message:"El ID del usuario está erróneo, corrobore"},
+    ERROR_ID_DOCUMENT: {statusCode: 500 ,error_message:"El ID del documento es requerido."},
+}

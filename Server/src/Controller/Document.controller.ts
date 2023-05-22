@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import { IDocument } from "../Interface/Document.interface";
-import { createDocumentModel, downloadFileModel, logicDeleteDocumentModel, updateDocumentModel } from "../Model/Document.model";
+import { assignGroupUsersToDocumentModel, createDocumentModel, downloadFileModel, logicDeleteDocumentModel, updateDocumentModel, updateUsersToDocumentModel } from "../Model/Document.model";
 import { validateErrorResponse } from "../Util/validations/errorResponseValidation";
 import { success } from "../Util/Response/Document/success";
 import { RequestModified } from "../Interface/User.interface";
@@ -110,10 +110,26 @@ export const downloadFileController = async (req: Request, res: Response) => {
     }    
 }
 
-export const assignUsersToDocumentController = async (req: Request, res: Response) => {
+export const updateUsersToDocumentController= async (req: Request, res: Response) => {
     try {
-        const _id: string = req.params.id;
-        const docFound = await getDocumentModel(_id);
+        const docFound = await updateUsersToDocumentModel(req.body);
+        validateErrorResponse(docFound);
+        return res
+            .status(success.DOCUMENT_FOUND.statusCode)
+            .send({
+                message: success.DOCUMENT_FOUND.message,
+                document: docFound
+            });
+    } catch (error:any) {
+        return res
+            .status(error.statusCode)
+            .json(error.error_message);  
+    }
+}
+
+export const assignGroupUsersToDocumentController= async (req: Request, res: Response) => {
+    try {
+        const docFound = await assignGroupUsersToDocumentModel(req.body);
         validateErrorResponse(docFound);
         return res
             .status(success.DOCUMENT_FOUND.statusCode)

@@ -1,7 +1,6 @@
 import { createGroupDB, deleteGroupDB, getAllGroupDB, getGroupDB, updateGroupDB, validateGroupUsersExistCreateDB } from "../DB/Query/User/GroupUsers";
 import { validateUsersExistCreateDB } from "../DB/Query/User/SearchUser";
 import { IGroupUsers } from "../Interface/GroupUsers.interface";
-import { IUser } from "../Interface/User.interface";
 import { IError } from "../Interface/error.Interface";
 import { errorGroupUsersClient, errorGroupUsersDB } from "../Util/Response/Group/error";
 

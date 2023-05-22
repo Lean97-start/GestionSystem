@@ -10,9 +10,9 @@
 - Registrar usuario *
 - Cerrar sesión usuario *
 - Descargar documento *
-- Asignar un usuario a un grupo relacionado a un documento.
-- Asignar grupo de usuarios a un documento
-- Asignar usuario a grupo (VER)
-- Sacar usuario de un grupo (VER)
-- Eliminar grupo (VER)
-- Buscar grupo de usuarios (VER)
+- Asignar un usuario a un grupo relacionado a un documento. *
+- Asignar grupo de usuarios a un documento *
+- Asignar usuario a grupo *
+- Sacar usuario de un grupo *
+- Eliminar grupo *
+- Buscar grupo de usuarios *
