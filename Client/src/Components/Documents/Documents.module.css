@@ -2,17 +2,29 @@
 
 .DocumentsList{
     border: 1px solid #000000;
+    height: 60%;
 }
 
 #tableDocuments{
-    display: flex;
+    display: block;
     border: 1px solid #d44646;
     padding: 5px;
-    margin: 5px;
+    /* margin: 5px; */
     flex-direction: column;
-    /* place-items: center; */
+    justify-content: center;
+    width: 100%;
+    overflow-y: scroll;
+    height: 100%;
 }
 
 tr, th, td{
+    display: flex;
+    justify-content: space-between;
+
     border: 1px solid green;
+}
+
+#btnSearch{
+    background-image: '../../Assets/lupa.png';
+    height: 20px;
 }

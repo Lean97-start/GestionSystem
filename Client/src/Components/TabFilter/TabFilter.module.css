@@ -1,4 +1,27 @@
-
+:root{
+    --widthInputs: 50%;
+    --paddInputs: 10px;
+}
 .TabFilter{
+    position: relative;
     border: 1px solid #000000;
+    height: 50%;
+}
+
+#dropdown{
+    width: var(--widthInputs);
+    border: 1px solid #000000;
+    margin: var(--paddInputs);
+}
+
+#inputNameDoc{
+    width: var(--widthInputs);
+    border: 1px solid #000000;
+    margin: var(--paddInputs);
+}
+
+#dateLoad{
+    width: var(--widthInputs);
+    border: 1px solid #000000;
+    margin: var(--paddInputs);
 }

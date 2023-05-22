@@ -1,0 +1,65 @@
+
+:root{
+    --padData: 1px;
+    --marElements: 5px;
+    --shadowGral: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 2px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+
+#divCardDoc{
+    /* border: 2px solid #24b685; */
+    padding: 20px;
+}
+
+#title{
+    font-weight: bolder;
+    font-size: x-large;
+    text-decoration: none;
+    color: #444444;
+}
+
+#date{
+    display: inline-block;
+    margin: var(--marElements);
+    /* border: 1px solid #000000; */
+    padding-left: var(--padData);
+    font-weight: bolder;
+    /* box-shadow: var(--shadowGral) */
+}
+
+#owner{
+    display: inline-block;
+    /* border: 1px solid #000000; */
+    margin: var(--marElements);
+    padding-left: var(--padData);
+    font-weight: bolder;
+    /* box-shadow: var(--shadowGral) */
+}
+#labelData{
+    display: inline;
+}
+#labelDescription{
+    display: inline-block;
+    margin-top: var(--marElements);
+    margin-bottom: var(--marElements);
+}
+
+#description{
+    border: 1px solid #000000;
+    padding-left: var(--padData);
+    /* box-shadow: var(--shadowGral); */
+    /* font-family: sans-serif; */
+    overflow-y: scroll;
+    font-size: 18px;
+    font-weight: 300;
+    color: #ffffff;
+    background: #889ccf;
+    margin: 0 0 25px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+#groupUsers{
+    border: 1px solid #000000;
+    padding-left: var(--padData);
+
+}

@@ -1,7 +1,13 @@
 
 .HomeGral{
+    position: relative;
     display: grid;
-    grid-template-rows: 2;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 1;
+    border: 2px solid #f7b553 ;
+    height: 100vh;
+    width: 100vw;
+
 }
 
 
@@ -10,14 +16,18 @@
 }
 
 #bodyGrid2{
+    position: relative;
     display: grid;
-    grid-template-columns: 30% 70%;
-    border: 1px solid #f7b553;
+    grid-template-columns: 20% 80%;
+    border: 5px solid #ad4930;
+    height: 50%;
 }
 
 .TabFilter{
-    grid-column: 1
+    grid-column: 1;
+    
 } 
 .Documents{
     grid-column: 2;
+    
 }

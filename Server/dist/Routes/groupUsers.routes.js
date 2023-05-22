@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const GroupUsers_controller_1 = require("../Controller/GroupUsers.controller");
+const user_validation_1 = require("../Middleware/user.validation");
+const groupUsersRouter = (0, express_1.Router)();
+groupUsersRouter.post("/V1/group/createGroupUsers", user_validation_1.validateToken, GroupUsers_controller_1.createGroupUsersController);
+groupUsersRouter.put("/V1/group/updateGroupUsers", user_validation_1.validateToken, GroupUsers_controller_1.updateGroupUsersController);
+groupUsersRouter.get("/V1/group/getGroupUsers/:id", user_validation_1.validateToken, GroupUsers_controller_1.getGroupUsersController);
+groupUsersRouter.post("/V1/group/getAllGroupUsers", user_validation_1.validateToken, GroupUsers_controller_1.getAllGroupUsersController);
+groupUsersRouter.delete("/V1/group/deleteGroupUsers", user_validation_1.validateToken, GroupUsers_controller_1.deleteGroupUsersController);
+groupUsersRouter.post("/V1/group/assignUserToGroupUser", user_validation_1.validateToken, GroupUsers_controller_1.assignUserToGroupUserController);
+exports.default = groupUsersRouter;

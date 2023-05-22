@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const Document_controller_1 = require("../Controller/Document.controller");
+const user_validation_1 = require("../Middleware/user.validation");
+const data_validation_1 = require("../Middleware/data.validation");
+const documentRouter = (0, express_1.Router)();
+documentRouter.post("/V1/document/createDocument", user_validation_1.validateToken, data_validation_1.validateDataFile, Document_controller_1.createDocumentController);
+documentRouter.put("/V1/document/updateDocument", user_validation_1.validateToken, data_validation_1.validateUpdateDataFile, Document_controller_1.updateDocumentController);
+documentRouter.delete("/V1/document/deleteDocument", user_validation_1.validateToken, Document_controller_1.logicDeleteDocumentController);
+documentRouter.get("/V1/document/getDocument/:id", user_validation_1.validateToken, Document_controller_1.getDocumentController);
+documentRouter.post("/V1/document/getAllDocuments", user_validation_1.validateToken, Document_controller_1.getAllDocumentController);
+documentRouter.post("/V1/document/downloadFile", user_validation_1.validateToken, Document_controller_1.downloadFileController);
+documentRouter.post("/V1/document/addGroupToDocument", user_validation_1.validateToken, Document_controller_1.downloadFileController);
+documentRouter.post("/V1/document/assignGroupUsersToDocument", user_validation_1.validateToken, Document_controller_1.assignGroupUsersToDocumentController);
+documentRouter.post("/V1/document/updateUsersToDocument", user_validation_1.validateToken, Document_controller_1.updateUsersToDocumentController);
+exports.default = documentRouter;
