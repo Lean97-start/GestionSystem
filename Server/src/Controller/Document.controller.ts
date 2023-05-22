@@ -26,8 +26,7 @@ export const createDocumentController = async (req: any, res: Response) => {
 
 export const updateDocumentController = async (req: Request, res: Response) => {
     try {
-        const {_id, payload} = req.body;
-        const updatedDoc = await updateDocumentModel(_id, payload);
+        const updatedDoc = await updateDocumentModel(req.body);
         validateErrorResponse(updatedDoc);
         return res
             .status(success.UPDATED_DOCUMENT.statusCode)
@@ -60,7 +59,8 @@ export const logicDeleteDocumentController = async (req: Request, res: Response)
 export const getAllDocumentController = async (req: RequestModified, res: Response) => {
     try {
         const payload = req.body;
-        const docsFound = await getDocumentsModel(payload)
+        const _id_user = req.user.id
+        const docsFound = await getDocumentsModel(_id_user, payload)
         validateErrorResponse(docsFound);
         return res
             .status(success.DOCUMENTS_FOUND.statusCode)

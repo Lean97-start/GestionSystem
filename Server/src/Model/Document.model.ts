@@ -1,9 +1,8 @@
 import { createDocumentDB, logicDeleteDocumentDB, updateDocumentDB } from "../DB/Query/Document/ABMDocument";
-import { downloadFileDB, searchAllDocumentsDB, searchDocumentDB } from "../DB/Query/Document/SearchDocument";
+import { downloadFileDB, searchDocumentDB } from "../DB/Query/Document/SearchDocument";
 import { getGroupDB } from "../DB/Query/User/GroupUsers";
 import { searchUserDB, validateUsersExistCreateDB } from "../DB/Query/User/SearchUser";
-import { IDocument, IFilterDocument, ISuccess } from "../Interface/Document.interface";
-import { IGroupUsers } from "../Interface/GroupUsers.interface";
+import { IDocument } from "../Interface/Document.interface";
 import { IError } from "../Interface/error.Interface";
 import { formatResponse } from "../Util/Format/document.format";
 import { errorClient } from "../Util/Response/Document/error";
@@ -36,11 +35,11 @@ export const downloadFileModel = async (_id_file: string): Promise<any> => {
     }
 }
 
-export const updateDocumentModel = async (_id_doc:string, updatedDocument: IDocument): Promise<IDocument | IError> => {
-    try {
-        await searchDocumentDB(_id_doc);
-        const responseUpdate: IDocument | IError = await updateDocumentDB(_id_doc, updatedDocument);
-        return responseUpdate;
+export const updateDocumentModel = async (body: any): Promise<IDocument | IError> => {
+    try {       
+        await searchDocumentDB(body._id);
+        const responseUpdate: IDocument | IError = await updateDocumentDB(body._id, body);
+        return formatResponse(responseUpdate);
     } catch (error: any) {
         return error;
     }
@@ -131,27 +130,3 @@ export const assignGroupUsersToDocumentModel = async (body: any): Promise<any> =
         return error;
     }
 }
-
-
-
-export const deleteGroupUsersFromDocumentModel = async (body: any): Promise<any> => {
-    try {
-        if(!body._id_doc) throw errorClient.ERROR_ID_DOCUMENT;
-        if(!body._id_group) throw errorGroupUsersClient.ERROR_ID_GROUP_USERS;
-        const { _id_doc, _id_group } = body;
-        await searchDocumentDB(_id_doc);
-        const groupUsers: any = await getGroupDB(_id_group);
-        const payload = {usersGroup: groupUsers.users}
-        const docUpdated: any = await updateDocumentDB(_id_doc, payload);
-        if(docUpdated.typeDocument){
-            return formatResponse(docUpdated)
-        }else{
-            return docUpdated;
-        }
-    } catch (error: any) {
-        return error;
-    }
-}
-
-
-

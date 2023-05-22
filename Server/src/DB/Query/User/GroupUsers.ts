@@ -53,7 +53,8 @@ export const getAllGroupDB = async (filterName?: string) => {
     try {   
         let filters = {};
         if(filterName?.length){
-            filters = {nameGroupUsers: filterName}
+            const regexString = new RegExp(filterName,"i")
+            filters = {nameGroupUsers: regexString}
         }
         const groupFound = await groupUsersInstanceDB.find(filters);
         if(groupFound.length === 0) throw errorGroupUsersClient.ERROR_GROUP_USERS

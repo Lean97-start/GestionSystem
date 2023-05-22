@@ -3,6 +3,7 @@ import { RequestModified } from "../Interface/User.interface";
 import jwt from "jsonwebtoken";
 import { IToken } from "../Interface/token.interface";
 import { enviroments } from "../Util/Config/configENV";
+import { closeSessionTokenExpiredModel } from "../Model/User.model";
 
 //Función para validar el token del usuario.
 export function validateToken(req: RequestModified, res: Response, next: NextFunction) {
@@ -14,7 +15,21 @@ export function validateToken(req: RequestModified, res: Response, next: NextFun
         req.user = tokenDecrypt;
         next();
     } catch (error: any) {
-        if(error.name === "TokenExpiredError") return res.status(400).json("Token expirado");
+        if(error.name === "TokenExpiredError") {
+            const {jwt_secret} = enviroments();
+            closeSessionTokenExpired(req.headers.authorization, jwt_secret);
+            return res.status(401).json("Token expirado");
+        }
         return res.status(500).json(error);
+    }
+}
+
+function closeSessionTokenExpired(token: any, secret: any){
+    try {
+        const tokenDecoded: any = jwt.decode(token.split(" ")[1], secret);
+        closeSessionTokenExpiredModel(tokenDecoded.id)
+        return
+    } catch (error: any) {
+        return error
     }
 }

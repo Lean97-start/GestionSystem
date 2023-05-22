@@ -20,5 +20,6 @@ export const errorClient = {
     ERROR_NAMEDOC: {statusCode: 400 ,error_message: 'Nombre del documento incorrecto.' },
     ERROR_TYPE_DOCUMENT: {statusCode: 400 ,error_message: 'Tipo incorrecto de documento' },
     ERROR_DOCUMENT_OWNER: {statusCode: 400 ,error_message: 'Propietario incorrecto' },
-    ERROR_DOCUMENT_NULL: {statusCode: 400 ,error_message: 'El documento es requerido' }
+    ERROR_DOCUMENT_NULL: {statusCode: 400 ,error_message: 'El documento es requerido' },
+    ERROR_DESCRIPCIP_INVALID: {statusCode: 400 ,error_message: 'La descripción debe ser entre 3 y 500 caracteres.' }
 }

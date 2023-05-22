@@ -5,12 +5,13 @@ export interface IUser {
     password: string,
     fullNameUser: string,
     _id?: any,
-    stateSession?: boolean
+    stateSession?: boolean,
 }
 
 export interface RequestModified extends Request{
-    user?: any
-    files?: any
+    user?: any,
+    files?: any,
+    descriptionDocument?: string,
     // document?: any
     // user?: IToken | string
 }

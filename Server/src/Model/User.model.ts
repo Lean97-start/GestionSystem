@@ -85,3 +85,12 @@ export const getUsersModel = async (): Promise<Array<IUser> | IError> => {
         return error
     }
 }
+
+export const closeSessionTokenExpiredModel = async (_id_user: string) => {
+    try {
+        const usersFound = await logoutUserDB(_id_user); 
+        return usersFound;
+    } catch (error: any) {
+        return error
+    }
+}

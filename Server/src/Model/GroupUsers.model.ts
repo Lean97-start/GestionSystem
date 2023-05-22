@@ -2,6 +2,7 @@ import { createGroupDB, deleteGroupDB, getAllGroupDB, getGroupDB, updateGroupDB,
 import { validateUsersExistCreateDB } from "../DB/Query/User/SearchUser";
 import { IGroupUsers } from "../Interface/GroupUsers.interface";
 import { IError } from "../Interface/error.Interface";
+import { formatResponses } from "../Util/Format/document.format";
 import { errorGroupUsersClient, errorGroupUsersDB } from "../Util/Response/Group/error";
 
 export const createGroupUsersModel = async (body: any): Promise<IGroupUsers | IError> => {
@@ -42,7 +43,7 @@ export const updateGroupUsersModel = async (body: any): Promise<IGroupUsers | IE
             })
         }     
         const groupUsersUpdated: any = await updateGroupDB(body._id_group, updateData); 
-        return groupUsersUpdated;
+        return formatResponses(groupUsersUpdated);
     } catch (error: any) {
         return error
     }
