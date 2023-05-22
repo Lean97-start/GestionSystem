@@ -9,7 +9,7 @@ Este es un sistema de gestión, el cúaal me permite hacer una gestión completa
 <h2>Ahora sí, vamos a la documentación</h2>
 # Documentación
 
-Presentamos de lo que sería la primera iteración.
+Presentamos de lo que sería la primera iteración. En este proyecto se implemento el patrón de arquitectura Modelo-vista-controlador (MVC)
 
 ## Requerimientos
 
@@ -65,6 +65,10 @@ Presentamos de lo que sería la primera iteración.
     - Axios
 
 # Puesta en marcha "Backend"
+
+**ANOTACIÓN**
+El proyecto no tiene ".env" por lo que son datos sensibles. Si lo desea, debe configurarlo para que no tome los asignados por defecto. (VER EN LA CARPETA "UTIL" => "Config" EL ARCHIVO "configENV").
+
 
 - Debemos posicionarnos en la carpeta de server.
 - En la consola, ejecutar "npm install", esto instalara las dependencias del proyecto.
