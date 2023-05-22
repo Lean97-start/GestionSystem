@@ -2,7 +2,7 @@ export interface IDocument{
     nameDocument: string,
     typeDocument: 'publico'| "privado" | "borrador",
     documentOwner: string
-    dataDocument: string
+    dataDocument: Buffer
 }
 
 export interface ISuccess{

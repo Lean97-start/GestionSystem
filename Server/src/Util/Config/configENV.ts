@@ -10,5 +10,6 @@ export function enviroments():IConfig {
     return config = {
         port: env.PORT || "3320",
         mongoDB: env.MONGODB || "mongodb://localhost/crowdar",
+        jwt_secret: env.JWT_SECRET || "secretDefault"
     }   
 }

@@ -5,4 +5,5 @@ export const success = {
     THERE_ARE_NO_DOCUMENTS: {statusCode: 200, message: "No existen documentos en el sistema."},
     DOCUMENT_FOUND: {statusCode: 200, message: "Documento encontrado."},
     DOCUMENTS_FOUND: {statusCode: 200, message: "Documentos encontrados."},
+    ASSIGNED_USERS: {statusCode: 200, message: "Usuarios asignados al documento"},
 }

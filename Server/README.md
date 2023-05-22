@@ -5,11 +5,11 @@
 - Eliminar un documento *
 - Ver todos los documentos *
 - Ver detalle de un documento *
-- Filtrar/Buscar documento por nombre/propietario/fechaSubida
+- Filtrar/Buscar documento por nombre/propietario/fechaSubida *
 - Iniciar sesión usuario *
 - Registrar usuario *
 - Cerrar sesión usuario *
-- Descargar documento
+- Descargar documento *
 - Asignar un usuario a un grupo relacionado a un documento.
 - Asignar grupo de usuarios a un documento
 - Asignar usuario a grupo (VER)

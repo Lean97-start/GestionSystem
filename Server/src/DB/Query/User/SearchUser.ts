@@ -1,5 +1,5 @@
 import { IUser } from "../../../Interface/User.interface"
-import { errorDB } from "../../../Util/Response/User/error"
+import { errorClient, errorDB } from "../../../Util/Response/User/error"
 import userInstanceDB from "../../Schema/UserSchema"
 
 
@@ -26,5 +26,16 @@ export const searchAllUsersDB = async () => { //Agregar para filtrar
         return usersFound;
     } catch (error: any) {
         throw errorDB.ERROR_USERS_FOUND;
+    }
+}
+
+export async function validateUserExistCreateDB(usernameExist: string): Promise<IUser> {
+    try {
+        const userFound: any = await userInstanceDB.find({ username: { $eq: usernameExist }});
+        if(userFound.length > 0) throw errorClient.ERROR_USER_REGISTED
+        return userFound;
+    } catch (error: any) {
+        if(error.statusCode.toString().startsWith('4')) throw error;
+        throw errorDB.ERROR_VALIDATE_USER;
     }
 }

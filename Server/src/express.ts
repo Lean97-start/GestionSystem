@@ -5,6 +5,7 @@ import documentRouter from "./Routes/document.routes";
 import bodyParser from "body-parser";
 import morgan from "morgan";
 import userRouter from './Routes/user.routes';
+const fileUpload = require('express-fileupload');
 
 export const initExpress = (): express.Express => {
     const app = express();
@@ -13,6 +14,7 @@ export const initExpress = (): express.Express => {
     app.use(morgan("dev")); 
     app.use(bodyParser.urlencoded({ extended: true, limit: "20mb" }));
     app.use(bodyParser.json({ limit: "5mb" }));
+    app.use(fileUpload());
     app.use(userRouter); //LLamo a las rutas
     app.use(documentRouter); //LLamo a las rutas
 

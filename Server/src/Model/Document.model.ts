@@ -1,21 +1,37 @@
 import { createDocumentDB, logicDeleteDocumentDB, updateDocumentDB } from "../DB/Query/Document/ABMDocument";
-import { searchAllDocumentsDB, searchDocumentDB } from "../DB/Query/Document/SearchDocument";
+import { downloadFileDB, searchAllDocumentsDB, searchDocumentDB } from "../DB/Query/Document/SearchDocument";
+import { searchUserDB } from "../DB/Query/User/SearchUser";
 import { IDocument, IFilterDocument, ISuccess } from "../Interface/Document.interface";
 import { IError } from "../Interface/error.Interface";
 
 export const createDocumentModel = async (document: IDocument): Promise<IDocument | IError> => {
     try {
-        // validateDocument(document); //Realizo la validación de los datos. De haber error, lanza un throw
-        const responseCreate:any = await createDocumentDB(document);
+        await searchUserDB(document.documentOwner)
+        let responseCreate:any = await createDocumentDB(document)
+        responseCreate = {
+            nameDocument: responseCreate.nameDocument           
+        }
         return responseCreate;
     } catch (error: any) {
         return error;
     }
 }
 
+export const downloadFileModel = async (_id_file: string): Promise<any> => {
+    try {
+        const fileFound = await downloadFileDB(_id_file);
+        const nameFile = fileFound.nameDocument; 
+        const cabecera = {
+            'Content-Disposition': `attachment; filename='${fileFound.nameDocument}'`,
+        }
+        return {file: fileFound.dataDocument, cabecera, nameFile};
+    } catch (error: any) {
+        return error
+    }
+}
+
 export const updateDocumentModel = async (_id_doc:string, updatedDocument: IDocument): Promise<IDocument | IError> => {
     try {
-        // validateDocument(document);//Realizo la validación de los datos. De haber error, lanza un throw
         await searchDocumentDB(_id_doc);
         const responseUpdate: IDocument | IError = await updateDocumentDB(_id_doc, updatedDocument);
         return responseUpdate;
@@ -52,3 +68,6 @@ export const getDocumentsModel = async (payload: IFilterDocument): Promise<Array
         return error
     }
 }
+
+
+

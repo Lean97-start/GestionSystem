@@ -1,10 +1,11 @@
 import { Request, Response } from "express"
 import { IDocument } from "../Interface/Document.interface";
-import { createDocumentModel, getDocumentModel, getDocumentsModel, logicDeleteDocumentModel, updateDocumentModel } from "../Model/Document.model";
+import { createDocumentModel, downloadFileModel, getDocumentModel, getDocumentsModel, logicDeleteDocumentModel, updateDocumentModel } from "../Model/Document.model";
 import { validateErrorResponse } from "../Util/validations/errorResponseValidation";
 import { success } from "../Util/Response/Document/success";
+import { RequestModified } from "../Interface/User.interface";
 
-export const createDocumentController = async (req: Request, res: Response) => {
+export const createDocumentController = async (req: any, res: Response) => {
     try {
         const document: IDocument = req.body;
         const docCreated = await createDocumentModel(document);
@@ -55,7 +56,7 @@ export const logicDeleteDocumentController = async (req: Request, res: Response)
     }    
 }
 
-export const getAllDocumentController = async (req: Request, res: Response) => {
+export const getAllDocumentController = async (req: RequestModified, res: Response) => {
     try {
         const payload = req.body;
         const docsFound = await getDocumentsModel(payload)
@@ -75,7 +76,7 @@ export const getAllDocumentController = async (req: Request, res: Response) => {
 
 export const getDocumentController = async (req: Request, res: Response) => {
     try {
-        const _id: string = req.body;
+        const _id: string = req.params.id;
         const docFound = await getDocumentModel(_id);
         validateErrorResponse(docFound);
         return res
@@ -89,4 +90,39 @@ export const getDocumentController = async (req: Request, res: Response) => {
             .status(error.statusCode)
             .json(error.error_message);
     }    
+}
+
+export const downloadFileController = async (req: Request, res: Response) => {
+    try {
+        const _id_doc: string = req.body.id_doc;
+        const fileFound = await downloadFileModel(_id_doc);
+        validateErrorResponse(fileFound); 
+        res.attachment(fileFound.nameFile);
+        return res
+                .status(success.DOCUMENT_FOUND.statusCode)
+                .set(fileFound.cabecera)
+                .end(fileFound.file);
+    } catch (error: any) {
+        return res
+            .status(error.statusCode)
+            .json(error.error_message);
+    }    
+}
+
+export const assignUsersToDocumentController = async (req: Request, res: Response) => {
+    try {
+        const _id: string = req.params.id;
+        const docFound = await getDocumentModel(_id);
+        validateErrorResponse(docFound);
+        return res
+            .status(success.DOCUMENT_FOUND.statusCode)
+            .send({
+                message: success.DOCUMENT_FOUND.message,
+                document: docFound
+            });
+    } catch (error:any) {
+        return res
+            .status(error.statusCode)
+            .json(error.error_message);  
+    }
 }

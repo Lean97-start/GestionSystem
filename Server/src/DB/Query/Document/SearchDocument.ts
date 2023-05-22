@@ -59,3 +59,16 @@ export const searchAllDocumentsDB = async (payload: IFilterDocument) => {
         throw errorDB.ERROR_DOCUMENT_FOUND;
     }
 }
+
+export const downloadFileDB = async (_id_file: string) => {
+    try {
+        const documentFound: IDocument | null = await documentInstanceDB.findOne({_id: {$eq: _id_file}})
+            .then((document) => { return document })
+            .catch(() => { throw errorDB.ERROR_DOCUMENT_NOT_FOUND })   
+        if(!documentFound) throw errorDB.ERROR_DOCUMENT_NOT_FOUND
+        return documentFound;
+    } catch (error: any) {
+        if(error.statusCode.toString().startsWith('4')) throw error;
+        throw errorDB.ERROR_DOCUMENT_FOUND;
+    }
+}

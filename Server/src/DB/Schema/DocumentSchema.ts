@@ -27,7 +27,7 @@ const documentSchema = new Schema(
             default: []
         },
         dataDocument:{
-            type: String,
+            type: Buffer,
             required:true
         }
     },{

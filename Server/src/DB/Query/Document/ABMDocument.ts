@@ -9,6 +9,7 @@ export const createDocumentDB = async (documentPayload: IDocument): Promise<any>
         const documentCreated = await documentInstanceDB.create(documentPayload)
         return documentCreated;
     } catch (error) {
+        console.log(error)
         throw errorDB.ERROR_CREATE_DOCUMENT;
     }
 }

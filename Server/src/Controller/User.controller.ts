@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { IUser } from "../Interface/User.interface";
+import { IUser, RequestModified } from "../Interface/User.interface";
 import { getUserModel, getUsersModel, logoutUserModel, signinUserModel, signupUserModel } from "../Model/User.model";
 import { validateErrorResponse } from "../Util/validations/errorResponseValidation";
 import { success } from "../Util/Response/User/success";
@@ -41,9 +41,9 @@ export const signinUserController = async (req: Request, res: Response) => {
     }
 }
 
-export const logoutUserController = async (req: Request, res: Response) => {
+export const logoutUserController = async (req: RequestModified, res: Response) => {
     try {
-        const _id = req.body;
+        const _id = req.user.id;
         const logoutSession = await logoutUserModel(_id);
         validateErrorResponse(logoutSession); //Valido si hubo un error en la creación.
         return res
@@ -65,7 +65,7 @@ export const getUserController = async (req: Request, res: Response) => {
             .status(success.USER_FOUND.statusCode)
             .json({
                 message: success.USER_FOUND.message,
-                userCreated: userFound
+                user: userFound
             });
     } catch (error: any) {
         return res
@@ -84,7 +84,7 @@ export const getAllUsersController = async (req: Request, res: Response) => {
             .status(success.USERS_FOUND.statusCode)
             .json({
                 message: success.USERS_FOUND.message,
-                userCreated: usersFound
+                users: usersFound
             });
     } catch (error: any) {
         return res
