@@ -42,6 +42,7 @@ Presentamos de lo que sería la primera iteración.
 - Validación de registro con mail.
 - Aplicar Unit test (UT).
 - Individualizar el nombre del archivo.
+- Aplicar mejoras de seguridad.
 # Tecnologías implementadas
 - **Back-End**
     - Node.js

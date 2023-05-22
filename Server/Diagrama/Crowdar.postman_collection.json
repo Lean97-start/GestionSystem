@@ -1,0 +1,873 @@
+{
+	"info": {
+		"_postman_id": "102d02da-21b0-48b7-a9e3-dfdaa02aac0c",
+		"name": "Crowdar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20240248"
+	},
+	"item": [
+		{
+			"name": "Documentos",
+			"item": [
+				{
+					"name": "Crear documento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "typeDocument",
+									"value": "borrador",
+									"type": "text"
+								},
+								{
+									"key": "documentOwner",
+									"value": "646b5e61f77a3e0cc2ade166",
+									"type": "text"
+								},
+								{
+									"key": "descriptionDocument",
+									"value": "Esta es una descripción de ejemplo",
+									"type": "text"
+								},
+								{
+									"key": "dataDocument",
+									"type": "file",
+									"src": "/C:/Users/leand/Desktop/Tarea.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/document/createDocument",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"document",
+								"createDocument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Descargar documento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_doc\": \"INGRESAR EL ID DEL DOCUMENTO A DESCARGAR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/document/downloadFile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"document",
+								"downloadFile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener documentos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nameDocument\": \"Unidad\"\r\n}\r\n\r\n\r\n// Acá me va a traer los documentos en los cuales el usuario este en su grupo de usuarios del documento o que el usuario sea el propietario.\r\n// Si no especificamos nada, nos devolvera los públicos.",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/document/getAllDocuments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"document",
+								"getAllDocuments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar un grupo de usuarios a un documento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id_doc\" : \"646bb98d146aeb087d7c7433\",\r\n    \"_id_group\" : \"646b4a5e16d7a63d591b6961\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/document/assignGroupUsersToDocument",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"document",
+								"assignGroupUsersToDocument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar usuarios a un socumento (NO GRUPO)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id_doc\" : \"Ingresar el ID del documento al que quiere agregar los usuarios\",\r\n    \"users\" : [\"Ingrese cada uno de los ID's de los usuarios a ingresar\"]\r\n}\r\n\r\n//El usuario manda los ID's de todos los usuarios a los que les comparte el documento, si está en el documento, pero no lo pone acá, lo elimina del grupo que accede al documento.",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/document/updateUsersToDocument",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"document",
+								"updateUsersToDocument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asignar grupo de usuarios a  un documento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id_doc\" : \"INGRESAR ID DEL DOCUMENTO\",\r\n    \"_id_group\" : \"INGRESAR ID DEL GRUPO DE USUARIOS\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/document/assignGroupUsersToDocument",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"document",
+								"assignGroupUsersToDocument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener documento",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/document/getDocument/646aa754ac7c488f1d288ef3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"document",
+								"getDocument",
+								"646aa754ac7c488f1d288ef3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar documento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"646bb8789421fdeac6e163a8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/document/deleteDocument",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"document",
+								"deleteDocument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar documento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_id",
+									"value": "646bb8e9146aeb087d7c7430",
+									"type": "text"
+								},
+								{
+									"key": "typeDocument",
+									"value": "borrador",
+									"type": "text"
+								},
+								{
+									"key": "documentOwner",
+									"value": "646b5e61f77a3e0cc2ade166",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "descriptionDocument",
+									"value": "Esta aa aaaa",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "dataDocument",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/document/updateDocument",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"document",
+								"updateDocument"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Registrar Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmE2MjJmZDNiNjI1MjdhM2I0NGFkYyIsInVzZXJuYW1lIjoiTGVhbmRyb3NzZCIsImZ1bGxOYW1lVXNlciI6IkxlYW5kcm8gTW9yZWxsbyIsImlhdCI6MTY4NDc1NjI1MywiZXhwIjoxNjg0NzU5ODUzfQ.4_oh8gMQSG-rkZOqPT8YYYH04-pT8_ks8A7IBIs0wUU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Juan_Ignacio\",\r\n    \"password\": \"Rivadavia\",\r\n    \"fullNameUser\": \"Juan Ignacio Gonzalez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/user/createUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"user",
+								"createUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Iniciar sesión",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5NzU4LCJleHAiOjE2ODQ4MTg1NTh9.yheVlBHRUNPtZnpAxMm38uLwBpFFlGDF3ehh4yJ3pkM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Juan_Ignacio\",\r\n    \"password\": \"Rivadavia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/user/signinUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"user",
+								"signinUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cerrar sesión",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5NzU4LCJleHAiOjE2ODQ4MTg1NTh9.yheVlBHRUNPtZnpAxMm38uLwBpFFlGDF3ehh4yJ3pkM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"6468e970fb00857c7555e670\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/user/closeSession",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"user",
+								"closeSession"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"646bd9fe01257a54d40371db\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/user/getUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"user",
+								"getUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/user/getAllUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"user",
+								"getAllUser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Grupo de usuarios",
+			"item": [
+				{
+					"name": "Traer grupo de usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/group/getGroupUsers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"group",
+								"getGroupUsers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer grupos de usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"filterNameGroup\": \"PRIMERO CREAR UN GRUPO Y LUEGO PONER EL NAME ACÁ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/group/getAllGroupUsers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"group",
+								"getAllGroupUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear grupo de usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nameGroupUsers\": \"Grupo de Prueba\",\r\n    \"users\": [\"INGRESAR UN ID DE UN USUARIO CREADO\", \"INGRESAR UN ID DE UN USUARIO CREADO\", \"TODOS LOS QUE QUIERAN\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/group/createGroupUsers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"group",
+								"createGroupUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar grupo de usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id_group\": \"646ad498799656e94b8ea6b4\",\r\n    \"nameGroupUsers\": \"Prueba\",\r\n    \"users\": [\"646a622fd3b62527a3b44adc\", \"646a68f021a14d2b23a49ee2\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/group/updateGroupUsers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"group",
+								"updateGroupUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar grupo de usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id_group\": \"INGRESAR EL ID DEL GRUPO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/group/deleteGroupUsers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"group",
+								"deleteGroupUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asignar usuarios a un grupo existente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmJkOWZlMDEyNTdhNTRkNDAzNzFkYiIsInVzZXJuYW1lIjoiSnVhbl9JZ25hY2lvIiwiZnVsbE5hbWVVc2VyIjoiSnVhbiBJZ25hY2lvIEdvbnphbGV6IiwiaWF0IjoxNjg0Nzg5ODU1LCJleHAiOjE2ODQ4MTg2NTV9.aMstcr2-aYNg7s5_yurZsrzkSH96Ga3rSJ3jMczlwLA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id_group\": \"INGRESAR ID DEL GRUPO\",\r\n    \"newUsers\": [ \"INGRESAR EL ID DEL USUARIO\", \"INGRESAR EL ID DEL USUARIO\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3320/V1/group/assignUserToGroupUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3320",
+							"path": [
+								"V1",
+								"group",
+								"assignUserToGroupUser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

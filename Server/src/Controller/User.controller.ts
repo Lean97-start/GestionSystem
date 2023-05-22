@@ -76,8 +76,6 @@ export const getUserController = async (req: Request, res: Response) => {
 
 export const getAllUsersController = async (req: Request, res: Response) => {
     try {
-        // const userPayload: IUser = req.body;
-        //OBTENER LOS FILTROS DE USUARIOS
         const usersFound = await getUsersModel();
         validateErrorResponse(usersFound); //Valido si hubo un error en la creación.
         return res

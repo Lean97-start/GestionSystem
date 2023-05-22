@@ -55,7 +55,6 @@ export async function validateUsersExistCreateDB(usuarios: Array<string>): Promi
         const userFound: any = await Promise.all(userPromise)
             .then((resolve) => resolve)
             .catch((rej) => rej)
-        console.log(userFound)
         if(userFound.length === 0) throw errorClient.ERROR_USER_REGISTED
         return userFound;
     } catch (error: any) {

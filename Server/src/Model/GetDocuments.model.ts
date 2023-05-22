@@ -1,14 +1,14 @@
 import { searchAllDocumentsDB, searchDocumentDB } from "../DB/Query/Document/SearchDocument";
 import { IDocument, IFilterDocument } from "../Interface/Document.interface";
 import { IError } from "../Interface/error.Interface";
-import { formatResponses } from "../Util/Format/document.format";
+import { formatResponse, formatResponses } from "../Util/Format/document.format";
 
 
 
 export const getDocumentModel = async (_id_doc: string): Promise<IDocument | IError> => {
     try {
         const docFound: IDocument | IError = await searchDocumentDB(_id_doc);
-        return formatResponses(docFound);
+        return formatResponse(docFound);
     } catch (error: any) {
         return error
     }
@@ -33,8 +33,8 @@ export const getDocumentsModel = async (_id_user: string, payload: IFilterDocume
             }else if(doc.typeDocument == "publico"){
                 arrayPublicDoc.push(doc);
             }
-        })
-        const arrayConcat = arrayPrivateDoc.concat(arrayDraftDoc.concat(arrayPublicDoc))
+        });
+        const arrayConcat = arrayPrivateDoc.concat(arrayDraftDoc.concat(arrayPublicDoc));
         return formatResponses(arrayConcat);
     } catch (error: any) {
         return error

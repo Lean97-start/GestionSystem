@@ -20,5 +20,5 @@ export const formatResponses = (docs: any) => {
             documentOwner: doc.documentOwner,
             usersGroup: doc.usersGroup
         }
-    });  
+    });
 }

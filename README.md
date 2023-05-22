@@ -42,6 +42,8 @@ Presentamos de lo que sería la primera iteración.
 - Validación de registro con mail.
 - Aplicar Unit test (UT).
 - Individualizar el nombre del archivo.
+- Aplicar mejoras de seguridad.
+
 # Tecnologías implementadas
 - **Back-End** Link al repo: <a href:"https://github.com/Lean97-start/GestionSystem/tree/main/Server"></a> 
     - Node.js

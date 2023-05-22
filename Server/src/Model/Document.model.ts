@@ -85,11 +85,9 @@ export const updateUsersToDocumentModel = async (body: any): Promise<any> => {
                 arrayExistUsersFiltered.push(existingUser);
             }
         });
-
         if(newUsers.length > 0){
             usersFound = await validateUsersExistCreateDB(newUsers);
-            if(usersFound[0].statusCode.toString().startsWith('4')) throw errorClient.ERROR_USER_NOT_FOUND
-            console.log(usersFound[0].statusCode)
+            console.log("HOLA",usersFound)
             const arrayConcat: Array<Object> = arrayExistUsersFiltered.concat(usersFound);
             const docUpdated: any = await updateDocumentDB(_id_doc, {usersGroup: arrayConcat});
             if(docUpdated.typeDocument){
