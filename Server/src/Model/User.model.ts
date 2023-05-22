@@ -1,5 +1,5 @@
 import { assignTokenRegister, logoutUserDB, signinUserDB, signupUserDB } from "../DB/Query/User/ABMUser";
-import { searchAllUsersDB, searchUserDB, validateUserExistCreateDB } from "../DB/Query/User/SearchUser";
+import { searchAllUsersDB, searchUserDB, validateUserExistCreateDB, validateUsersExistCreateDB } from "../DB/Query/User/SearchUser";
 import { IUser } from "../Interface/User.interface";
 import { IError } from "../Interface/error.Interface";
 import { hashPass, matchPass } from "../Util/Config/user.encrypt";

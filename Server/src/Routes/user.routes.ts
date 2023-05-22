@@ -7,6 +7,7 @@ import {
     signupUserController,
 } from "../Controller/User.controller";
 import { validateToken } from "../Middleware/user.validation";
+import { createGroupUsersController } from "../Controller/GroupUsers.controller";
 
 const userRouter = Router();
 

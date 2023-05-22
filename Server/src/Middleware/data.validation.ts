@@ -7,7 +7,6 @@ import { errorClient } from "../Util/Response/User/error";
 export function validateDataFile(req: RequestModified, res: Response, next: NextFunction) {
     try {        
         if(!req.body) return res.status(400).json("Cuerpo de la petición requerido");
-        // const regex = /^[a-zA-Z0-9!@#$%^&*()-_=+\[\]{};:'",.<>/?`~\\|]+$/;
     
          //Valido que el file no venga vacío.
         if(!req.files){
@@ -32,7 +31,6 @@ export function validateDataFile(req: RequestModified, res: Response, next: Next
         } else if(req.body.documentOwner.length !== 24){
             return res.status(errorClient.ERROR_DOCUMENT_OWNER.statusCode).json(errorClient.ERROR_DOCUMENT_OWNER.error_message);
         }
-        console.log(req.body.documentOwner)
 
         req.body.dataDocument = file.data;
         req.body.nameDocument = file.name;

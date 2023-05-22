@@ -8,7 +8,6 @@ export const signupUserDB = async (payload: IUser) => {
         const userCreated = await userInstanceDB.create(payload);
         return userCreated;
     } catch (error: any) {
-        console.log(error)
         throw errorDB.ERROR_CREATE_USER;
     }
 }
@@ -60,3 +59,4 @@ export async function assignTokenRegister(_idUser: string, token: string) {
         return errorDB.ERROR_ASSIGN_TOKEN_USER;
     }
 }
+

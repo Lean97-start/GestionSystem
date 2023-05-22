@@ -1,9 +1,10 @@
 import { Request, Response } from "express"
 import { IDocument } from "../Interface/Document.interface";
-import { createDocumentModel, downloadFileModel, getDocumentModel, getDocumentsModel, logicDeleteDocumentModel, updateDocumentModel } from "../Model/Document.model";
+import { createDocumentModel, downloadFileModel, logicDeleteDocumentModel, updateDocumentModel } from "../Model/Document.model";
 import { validateErrorResponse } from "../Util/validations/errorResponseValidation";
 import { success } from "../Util/Response/Document/success";
 import { RequestModified } from "../Interface/User.interface";
+import { getDocumentModel, getDocumentsModel } from "../Model/GetDocuments.model";
 
 export const createDocumentController = async (req: any, res: Response) => {
     try {
