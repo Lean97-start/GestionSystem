@@ -15,23 +15,21 @@ export const createGroupDB = async (nameGroup: string, users: Array<Object>) => 
 
 export const updateGroupDB = async (_id_group: string, dataUpdate: Object) => {
     try {       
-        console.log(dataUpdate)
         const groupCreated = await groupUsersInstanceDB.findOneAndUpdate({_id: {$eq: _id_group}}, dataUpdate, {new: true});
         return groupCreated;
     } catch (error: any) {
-        console.log(error)
         return errorGroupUsersDB.ERROR_UPDATE_GROUP;
     }
 }
 
 export const getGroupDB = async (_id_group: string | null, nameGroupUsers?: string) => {
     try {       
-        const groupFound = await groupUsersInstanceDB.find({
+        const groupFound = await groupUsersInstanceDB.findOne({
             $or: [
                 {nameGroupUsers: {$eq: nameGroupUsers}},
                 {_id: {$eq: _id_group}}
             ]});
-        if(groupFound.length === 0) throw errorGroupUsersClient.ERROR_GROUP_USERS
+        if(!groupFound) throw errorGroupUsersClient.ERROR_GROUP_USERS
         return groupFound;
     } catch (error: any) {
         

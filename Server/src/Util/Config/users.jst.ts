@@ -12,7 +12,7 @@ const generateJwt = (id: string, username: string, fullNameUser: string) => {
         },
         jwt_secret,
         {
-        expiresIn: 60 * 60 * 1, //El token tiene un tiempo de expiracion una hora
+        expiresIn: 60 * 60 * 8, //El token tiene un tiempo de expiracion una hora
         }
     );
     return { token };

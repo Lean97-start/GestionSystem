@@ -1,7 +1,9 @@
 import { Router } from "express";
 import { 
+    assignUserToGroupUserController,
     createGroupUsersController,
     deleteGroupUsersController,
+    deleteUserFromGroupUserController,
     getAllGroupUsersController,
     getGroupUsersController,
     updateGroupUsersController 
@@ -15,5 +17,7 @@ groupUsersRouter.put("/V1/group/updateGroupUsers", validateToken, updateGroupUse
 groupUsersRouter.get("/V1/group/getGroupUsers/:id", validateToken, getGroupUsersController);
 groupUsersRouter.post("/V1/group/getAllGroupUsers", validateToken, getAllGroupUsersController);
 groupUsersRouter.delete("/V1/group/deleteGroupUsers", validateToken, deleteGroupUsersController);
+groupUsersRouter.post("/V1/group/assignUserToGroupUser", validateToken, assignUserToGroupUserController);
+groupUsersRouter.post("/V1/group/deleteUserToGroupUser", validateToken, deleteUserFromGroupUserController);
 
 export default groupUsersRouter;

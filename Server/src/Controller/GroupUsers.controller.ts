@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createGroupUsersModel, deleteGroupUsersModel, getAllGroupUsersModel, getGroupUsersModel, updateGroupUsersModel } from "../Model/GroupUsers.model";
+import { assignUserToGroupUserModel, createGroupUsersModel, deleteGroupUsersModel, deleteUserToGroupUserModel, getAllGroupUsersModel, getGroupUsersModel, updateGroupUsersModel } from "../Model/GroupUsers.model";
 import { validateErrorResponse } from "../Util/validations/errorResponseValidation";
 import { success } from "../Util/Response/User/success";
 
@@ -91,10 +91,36 @@ export const deleteGroupUsersController = async (req: Request, res: Response) =>
     }
 }
 
-export const assignUserToGroupUser = () => {
-    
+export const assignUserToGroupUserController = async (req: Request, res: Response) => {
+    try {      
+        const groupDeleted = await assignUserToGroupUserModel(req.body);
+        validateErrorResponse(groupDeleted);
+        return res
+            .status(success.GROUP_USERS_DELETED.statusCode)
+            .json({
+                message: success.GROUP_USERS_DELETED.message,
+                group: groupDeleted
+            });
+    } catch (error: any) {
+        return res
+            .status(error.statusCode)
+            .json(error.error_message);
+    }
 }
 
-export const deleteUserFromGroupUser = () => {
-
+export const deleteUserFromGroupUserController = async (req: Request, res: Response) => {
+    try {      
+        const groupDeleted = await deleteUserToGroupUserModel(req.body);
+        validateErrorResponse(groupDeleted);
+        return res
+            .status(success.GROUP_USERS_DELETED.statusCode)
+            .json({
+                message: success.GROUP_USERS_DELETED.message,
+                group: groupDeleted
+            });
+    } catch (error: any) {
+        return res
+            .status(error.statusCode)
+            .json(error.error_message);
+    }
 }

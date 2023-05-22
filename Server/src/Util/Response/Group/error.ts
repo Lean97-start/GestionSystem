@@ -12,4 +12,5 @@ export const errorGroupUsersClient = {
     ERROR_ID_GROUP_USERS: {statusCode: 400 ,error_message: 'El ID del grupo de usuarios es requerido.' },
     ERROR_GROUP_USERS_REQUIRED: {statusCode: 400 ,error_message: 'El grupo de usuarios es requerido.' },
     ERROR_GROUP_USERS_NAME_REQUIRED: {statusCode: 400 ,error_message: 'El nombre del grupo de usuarios es requerido.' },
+    ERROR_NEW_GROUP_USERS_REQUIRED: {statusCode: 400 ,error_message: 'El nuevo grupo de usuarios es requerido.' },
 }
