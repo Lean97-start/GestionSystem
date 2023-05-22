@@ -64,6 +64,9 @@ Presentamos de lo que sería la primera iteración.
 
 # Puesta en marcha "Backend"
 
+**ANOTACIÓN**
+El proyecto no tiene ".env" por lo que son datos sensibles. Si lo desea, debe configurarlo para que no tome los asignados por defecto. (VER EN LA CARPETA "UTIL" => "Config" EL ARCHIVO "configENV").
+
 - Debemos posicionarnos en la carpeta de server.
 - En la consola, ejecutar "npm install", esto instalara las dependencias del proyecto.
 - Una vez realizado esto, comprobamos que tenemos la instancia de MongoDB funcionando para almacenar los datos.
