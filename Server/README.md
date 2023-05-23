@@ -62,7 +62,7 @@ Presentamos de lo que sería la primera iteración.
     - Redux
     - Axios
 
-# Puesta en marcha "Backend"
+# Puesta en marcha "BackEnd"
 
 **ANOTACIÓN**
 El proyecto no tiene ".env" por lo que son datos sensibles. Si lo desea, debe configurarlo para que no tome los asignados por defecto. (VER EN LA CARPETA "UTIL" => "Config" EL ARCHIVO "configENV").
