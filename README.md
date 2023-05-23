@@ -46,7 +46,7 @@ Presentamos de lo que sería la primera iteración. En este proyecto se implemen
 
 
 # Tecnologías implementadas
-- **Back-End** Link al repo: <a href:"https://github.com/Lean97-start/GestionSystem/tree/main/Server"></a> 
+- **Back-End** 
     - Node.js
     - Express
     - Express-fileupload
@@ -56,13 +56,17 @@ Presentamos de lo que sería la primera iteración. En este proyecto se implemen
     - TypeScript
     - MongoDB
 
-- **Front-End** (En construcción) Link al repo: <a href:"https://github.com/Lean97-start/GestionSystem/tree/main/Client"></a> 
+<a href="https://github.com/Lean97-start/GestionSystem/tree/main/Server" target="blank">Link al Backend</a>
+
+- **Front-End** (En construcción)
     - React
     - HTML5
     - CSS3
     - JavaScript
     - Redux
     - Axios
+
+<a href="https://github.com/Lean97-start/GestionSystem/tree/main/Client" target="blank">Link al Frontend</a>
 
 # Puesta en marcha "Backend"
 
